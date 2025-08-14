@@ -205,9 +205,9 @@ def rerank(profile: dict, results: list, weights: dict, topn=12):
     return out[:topn]
 
 # ============== UI 主体 ==============
-st.title("🎧 歌曲画像 → DuckDuckGo 相似检索（API易）")
+st.title("🎧 歌曲画像 → 相似检索")
 seed = st.text_input("输入：歌曲名 - 艺术家（尽量精确，含年份/专辑更好）",
-                     "Fanfares - GoGo Penguin (2014)")
+                     "Umbra - GoGo Penguin (2025)")
 
 if st.button("分析并检索", use_container_width=True):
     # 1) 画像
@@ -244,3 +244,4 @@ if st.button("分析并检索", use_container_width=True):
         st.markdown(f"**[{item['title']}]({item['href']})**  \n分数: `{item['score']:.2f}`  \n{item['body']}")
         with st.expander("贡献明细"):
             st.write({k: round(v, 3) for k, v in item["why"].items()})
+
